@@ -1,88 +1,73 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { CreditPayer } from "../../../application/behavioral/strategy/CreditPayer";
+import { type } from "os";
+import { useEffect, useState } from "react";
+import { ETypePayer } from "../../../application/behavioral/strategy/Payer/IPayer";
 import { Order } from "../../../application/behavioral/strategy/Order";
-import { TicketPayer } from "../../../application/behavioral/strategy/TicketPayer";
+import { Layout } from "../../../components/common";
 import styles from "../../../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const creditPayer = new CreditPayer();
-  const ticketPayer = new TicketPayer();
   const order = new Order();
 
-  const [payerMethod, setPayerMethod] = useState(0);
-  const [orderValue, setOrderValues] = useState(100);
+  const [payerMethod, setPayerMethod] = useState<ETypePayer>();
+  const [orderValue, setOrderValue] = useState(100);
   const [taxValue, setTaxValue] = useState(order.calcTax());
-  order.setValue(100);
 
   const handlePayerChange = (e: React.FormEvent<HTMLInputElement>) => {
     setPayerMethod(Number(e.currentTarget.value));
   };
+  const handleOrderValueChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setOrderValue(Number(e.currentTarget.value));
+  };
 
   useEffect(() => {
-    if (payerMethod) order.setPayerMethod(ticketPayer);
-    else order.setPayerMethod(creditPayer);
-
+    calcOrder();
     setTaxValue(order.calcTax());
   }, [payerMethod]);
 
   useEffect(() => {
-    order.setValue(orderValue);
+    calcOrder();
+    setTaxValue(order.calcTax());
   }, [orderValue]);
 
+  const calcOrder = () => {
+    order.setPayerMethod(payerMethod ?? ETypePayer.Debit);
+    order.value = orderValue;
+  };
+
+  const renderOptions = () => {
+    return Object.keys(ETypePayer)
+      .filter((e) => isNaN(Number(e)))
+      .map((payerType) => {
+        let type: ETypePayer = ETypePayer[payerType as keyof typeof ETypePayer];
+
+        return (
+          <div>
+            {payerType}
+            <input
+              id={`${payerType}Payer`}
+              value={type}
+              checked={payerMethod === type}
+              name="platform"
+              type="radio"
+              onChange={(e) => handlePayerChange(e)}
+            />
+          </div>
+        );
+      });
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Strategy Pattern" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
+      <h1 className={styles.title}>Strategy Pattern</h1>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Strategy Pattern</h1>
-
-        <div className={styles.description}>
-          <p>Order:{orderValue}</p>
-          <p>Tax:{taxValue}</p>
-        </div>
-        
-        <div className="radio-buttons">
-          Credit
-          <input
-            id="creditPayer"
-            value="0"
-            checked={payerMethod == 0}
-            name="platform"
-            type="radio"
-            onChange={(e) => handlePayerChange(e)}
-          />
-          Ticket
-          <input
-            id="ticketPayer"
-            value="1"
-            checked={payerMethod == 1}
-            name="payer"
-            type="radio"
-            onChange={(e) => handlePayerChange(e)}
-          />
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+      <div className={styles.description}>
+        <p>Order:{orderValue}</p>
+        <p>Tax:{taxValue}</p>
+      </div>
+      <input type="number" onChange={(e) => handleOrderValueChange(e)} />
+      <div className="radio-buttons">{renderOptions()}</div>
+    </Layout>
   );
 };
 

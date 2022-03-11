@@ -1,20 +1,37 @@
-import { CreditPayer } from "./CreditPayer";
-import { IPayer } from "./IPayer";
+import { CreditPayer } from "./Payer/PayerCredit";
+import { DebitPayer } from "./Payer/PayerDebit";
+import { ETypePayer, IPayer } from "./Payer/IPayer";
+import { TicketPayer } from "./Payer/PayerTicket";
 
 export class Order {
-  private value: number;
+  private _value: number = 0;
   private payer?: IPayer;
 
-  public setValue(value: number) {
+  private ticketPayer = new TicketPayer();
+  private debitPayer = new DebitPayer();
+  private creditPayer = new CreditPayer();
+
+  public set value(value: number) {
     this.value = value;
   }
-  public setPayerMethod(payer: IPayer) {
-    this.payer = payer;
+  
+  public setPayerMethod(payer: ETypePayer) {
+    switch (payer) {
+      case ETypePayer.Ticket:
+        this.payer = this.ticketPayer;
+        break;
+      case ETypePayer.Debit:
+        this.payer = this.debitPayer;
+        break;
+      case ETypePayer.Credit:
+        this.payer = this.creditPayer;
+        break;
+    }
   }
 
   constructor() {
     this.value = 0;
-    this.payer = new CreditPayer()
+    this.payer = this.ticketPayer;
   }
 
   public calcTax(): number {

@@ -51,6 +51,12 @@ const Home: NextPage = () => {
             <p>Learn this Pattern</p>
           </div>
         </Link>
+        <Link href={"structural/decorator"}>
+          <div className={styles.card}>
+            <h2>Decorator</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
       </div>
     </Layout>
   );

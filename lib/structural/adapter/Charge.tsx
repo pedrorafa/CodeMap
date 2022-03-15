@@ -2,10 +2,10 @@ import { IGateway } from "./Interface/IGateway";
 
 export class Charge {
   private _gateway: IGateway;
-  value: number;
-  amounts: number;
-  card: string;
-  cvv: number;
+  value: number = 0;
+  amounts: number = 0;
+  card: string = "";
+  cvv: number = 0;
 
   constructor(gateway: IGateway) {
     this._gateway = gateway;

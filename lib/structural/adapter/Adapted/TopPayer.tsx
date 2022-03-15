@@ -1,8 +1,8 @@
 export class TopPayer {
-  private value: number;
-  private amounts: number;
-  private card: string;
-  private cvv: number;
+  private value: number = 0;
+  private amounts: number = 0;
+  private card: string = "";
+  private cvv: number = 0;
 
   public setValue(value: number) {
     this.value = value;

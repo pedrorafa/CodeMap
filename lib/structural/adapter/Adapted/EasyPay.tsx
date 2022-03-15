@@ -1,20 +1,26 @@
 export class EasyPay {
+  protected value: number = 0;
+  protected amounts: number = 0;
+  protected card: string = "";
+  protected cvv: number = 0;
+
   setValue(value: number): void {
-    this.setValue(value);
+    this.value = value;
   }
   setAmounts(amounts: number): void {
-    this.setAmounts(amounts);
+    this.amounts = amounts;
   }
   setCard(card: string): void {
-    this.setCard(card);
+    this.card = card;
   }
   setCVV(cvv: number): void {
-    this.setCVV(cvv);
+    this.cvv = cvv;
   }
   validateCard(): boolean {
-    return this.validateCard();
+    return !!this.value && !!this.amounts && !!this.card && !!this.cvv;
   }
   pay(): boolean {
-    return this.pay();
+    if (this.validateCard()) return true;
+    return false;
   }
 }

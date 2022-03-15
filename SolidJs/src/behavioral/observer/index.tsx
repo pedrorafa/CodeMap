@@ -1,8 +1,8 @@
-import { Component, createMemo, createSignal } from "solid-js";
-import Client from "../../../lib/behavioral/obeserver/observer/Client";
-import Patner from "../../../lib/behavioral/obeserver/observer/Patner";
-import Newsletter from "../../../lib/behavioral/obeserver/subject/Newsletter";
-import News from "../../../lib/behavioral/obeserver/subject/News";
+import { Component, createSignal } from "solid-js";
+import Client from "../../../lib/behavioral/observer/observer/Client";
+import Patner from "../../../lib/behavioral/observer/observer/Patner";
+import Newsletter from "../../../lib/behavioral/observer/subject/Newsletter";
+import News from "../../../lib/behavioral/observer/subject/News";
 
 const ObserverPage: Component = () => {
   const client = new Client("1");
@@ -12,8 +12,10 @@ const ObserverPage: Component = () => {
 
   const [news] = createSignal<News>(new News());
   const [currentNews, setCurrentNews] = createSignal<string>();
-  const [clientNotification, setClientNotification] = createSignal<string>(client.notification);
-  
+  const [clientNotification, setClientNotification] = createSignal<string>(
+    client.notification
+  );
+
   const handleNewsChange = (e: any) => {
     news().message = e.currentTarget.value;
     newsletter.notify(news());
@@ -24,9 +26,9 @@ const ObserverPage: Component = () => {
 
   return (
     <div>
-      <h1 className={''}>Observer Pattern</h1>
+      <h1 className={""}>Observer Pattern</h1>
 
-      <div className={''}>
+      <div className={""}>
         <p>News: {currentNews}</p>
         <p>
           Client: {clientNotification}

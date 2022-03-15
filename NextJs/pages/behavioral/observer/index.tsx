@@ -2,19 +2,19 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import { Layout } from "../../../components/common";
 import styles from "../../../styles/Home.module.css";
-import Newsletter from "../../../lib/behavioral/obeserver/subject/Newsletter";
-import News from "../../../lib/behavioral/obeserver/subject/News";
-import Client from "../../../lib/behavioral/obeserver/observer/Client";
-import Patner from "../../../lib/behavioral/obeserver/observer/Patner";
+import { Newsletter } from "../../../lib/behavioral/observer/subject/Newsletter";
+import { News } from "../../../lib/behavioral/observer/subject/News";
+import { Client } from "../../../lib/behavioral/observer/observer/Client";
+import { Partner } from "../../../lib/behavioral/observer/observer/Partner";
 
 const client = new Client("1");
 const client2 = new Client("2");
-const patner = new Patner("3");
+const partner = new Partner("3");
 const newsletter = new Newsletter();
 
 newsletter.subscribe(client);
 newsletter.subscribe(client2);
-newsletter.subscribe(patner);
+newsletter.subscribe(partner);
 
 const ObserverPage: NextPage = () => {
   const [news] = useState<News>(new News());
@@ -52,11 +52,11 @@ const ObserverPage: NextPage = () => {
           </button>
         </p>
         <p>
-          Patner: {patner.prefix} {patner.alert}
-          <button onClick={() => newsletter.subscribe(patner)}>
+          Patner: {partner.prefix} {partner.alert}
+          <button onClick={() => newsletter.subscribe(partner)}>
             Inscrever
           </button>
-          <button onClick={() => newsletter.unsubscribe(patner.id)}>
+          <button onClick={() => newsletter.unsubscribe(partner.id)}>
             Cancelar
           </button>
         </p>

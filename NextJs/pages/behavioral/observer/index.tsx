@@ -35,28 +35,46 @@ const ObserverPage: NextPage = () => {
         <p>News: {currentNews}</p>
         <p>
           Client: {client.notification}
-          <button onClick={() => newsletter.subscribe(client)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.subscribe(client)}
+          >
             Inscrever
           </button>
-          <button onClick={() => newsletter.unsubscribe(client.id)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.unsubscribe(client.id)}
+          >
             Cancelar
           </button>
         </p>
         <p>
           Client2: {client2.notification}
-          <button onClick={() => newsletter.subscribe(client2)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.subscribe(client2)}
+          >
             Inscrever
           </button>
-          <button onClick={() => newsletter.unsubscribe(client2.id)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.unsubscribe(client2.id)}
+          >
             Cancelar
           </button>
         </p>
         <p>
           Patner: {partner.prefix} {partner.alert}
-          <button onClick={() => newsletter.subscribe(partner)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.subscribe(partner)}
+          >
             Inscrever
           </button>
-          <button onClick={() => newsletter.unsubscribe(partner.id)}>
+          <button
+            className={styles.button}
+            onClick={() => newsletter.unsubscribe(partner.id)}
+          >
             Cancelar
           </button>
         </p>

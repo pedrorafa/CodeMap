@@ -7,9 +7,16 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Chrome NextJs",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/NextJs"
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Chrome SolidJs",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/SolidJs"
         }
     ]
 }

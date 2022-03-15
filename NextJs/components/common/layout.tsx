@@ -16,9 +16,11 @@ const Layout = ({ children }: LayoutProps) => {
         <meta name="description" content="Design Patterns" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href={"/"}>
-        <h4>Home</h4>
-      </Link>
+      <nav>
+        <Link href={"/"}>
+          <h4>Home</h4>
+        </Link>
+      </nav>
       <main className={styles.main}>{children}</main>
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import styles from "../../../styles/Home.module.css";
 
 let order = new Order();
 
-const ObserverPage: NextPage = () => {
+const StatePage: NextPage = () => {
   const [current, setCurrent] = useState<string>();
   const [previous, setPrevious] = useState<string>();
 
@@ -29,6 +29,7 @@ const ObserverPage: NextPage = () => {
         <p>Current State: {current}</p>
 
         <button
+          className={styles.button}
           onClick={() => {
             setNewOrder();
           }}
@@ -36,6 +37,7 @@ const ObserverPage: NextPage = () => {
           Novo Pedido
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             order.payOrder();
             setDescription();
@@ -44,6 +46,7 @@ const ObserverPage: NextPage = () => {
           Pagar
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             order.cancelOrder();
             setDescription();
@@ -52,6 +55,7 @@ const ObserverPage: NextPage = () => {
           Cancelar
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             order.sendOrder();
             setDescription();
@@ -64,4 +68,4 @@ const ObserverPage: NextPage = () => {
   );
 };
 
-export default ObserverPage;
+export default StatePage;

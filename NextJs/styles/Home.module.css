@@ -2,6 +2,11 @@
   padding: 0 2rem;
 }
 
+.button {
+  margin: 5px;
+  padding: 5px 7px;
+}
+
 .main {
   min-height: 100vh;
   padding: 2rem 0;
@@ -70,7 +75,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1000px;
+  border: 1px solid #b1b1b1;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .card {
@@ -82,7 +90,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  max-width: 250px;
 }
 
 .card:hover,

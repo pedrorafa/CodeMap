@@ -1,5 +1,8 @@
 import { INpc } from "../Interface/INpc";
 
 export class Baker implements INpc {
-  speak: string = "Wolf";
+  name: string = "Baker";
+  speak(): string {
+    return "Get some bread!";
+  }
 }

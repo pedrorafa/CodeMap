@@ -29,10 +29,10 @@ const AbstractPage: NextPage = () => {
             <button
               className={styles.button}
               onClick={() => {
-                alert(p.speak);
+                alert(p.speak());
               }}
             >
-              {p.speak}
+              {p.name}
             </button>
           );
         })}
@@ -44,6 +44,7 @@ const AbstractPage: NextPage = () => {
     <Layout>
       <h1 className={styles.title}>Abstract Pattern</h1>
       <div className={styles.grid}>{renderTerritory(city)}</div>
+      <br />
       <div className={styles.grid}>{renderTerritory(jungle)}</div>
     </Layout>
   );

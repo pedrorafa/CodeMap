@@ -1,7 +1,7 @@
-import { Baker } from "../../factory/Villager/Baker";
 import { House } from "../Building/House";
 import { ITerritory } from "../interface/ITerritory";
 import { ITerritoryFactory } from "../interface/ITerritoryFactory";
+import { Baker } from "../Npc/Baker";
 import { City } from "../Territory/City";
 
 export class CityFactory implements ITerritoryFactory {

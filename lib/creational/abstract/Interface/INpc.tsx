@@ -1,3 +1,4 @@
 export interface INpc {
-  speak: string;
+  name: string;
+  speak(): string;
 }

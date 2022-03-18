@@ -64,6 +64,24 @@ const Home: NextPage = () => {
           </div>
         </Link>
       </div>
+
+      <p className={styles.description}>
+        <code className={styles.code}>Creational</code>
+      </p>
+      <div className={styles.grid}>
+        <Link href={"creational/factory"}>
+          <div className={styles.card}>
+            <h2>Factory</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
+        <Link href={"creational/abstract"}>
+          <div className={styles.card}>
+            <h2>Abstract</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
+      </div>
     </Layout>
   );
 };

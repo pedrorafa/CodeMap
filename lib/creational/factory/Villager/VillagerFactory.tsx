@@ -3,15 +3,9 @@ import { Npc } from "../Npc";
 import { Carpenter } from "./Carpenter";
 import { Baker } from "./Baker";
 
-export abstract class VillagerFactory extends NpcFactory {
-  protected abstract villager: Npc;
-
+export class VillagerFactory extends NpcFactory {
   create(level: number): Npc {
-    if (level <= 1) this.villager = new Baker();
-    else this.villager = new Carpenter();
-
-    this.villager.level = level;
-
-    return this.villager;
+    if (level <= 1) return new Baker();
+    else return new Carpenter();
   }
 }

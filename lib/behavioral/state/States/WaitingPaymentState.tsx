@@ -1,5 +1,8 @@
+import i18n from "../../../i18n";
 import IContext from "../Interface/IContext";
 import IState from "../Interface/IState";
+
+const messages: any = i18n.behavioral.state.waitingPayment;
 
 export default class WaitingPaymentState implements IState {
   context: IContext;
@@ -7,7 +10,7 @@ export default class WaitingPaymentState implements IState {
 
   constructor(context: IContext) {
     this.context = context;
-    this.description = "Aguardando pagamento";
+    this.description = messages.init;
   }
 
   pay(): void {
@@ -19,6 +22,6 @@ export default class WaitingPaymentState implements IState {
     this.context.currentState = this.context.cancelState;
   }
   send(): void {
-    this.description = "Pedido aguardando pagamento, não pode ser enviado!";
+    this.description = messages.error;
   }
 }

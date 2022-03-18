@@ -1,5 +1,8 @@
+import i18n from "../../../i18n";
 import IContext from "../Interface/IContext";
 import IState from "../Interface/IState";
+
+const messages: any = i18n.behavioral.state.sent;
 
 export default class SentState implements IState {
   context: IContext;
@@ -7,16 +10,16 @@ export default class SentState implements IState {
 
   constructor(context: IContext) {
     this.context = context;
-    this.description = "Enviado";
+    this.description = messages.init;
   }
 
   pay(): void {
-    this.description = "Pedido já foi enviado!";
+    this.description = messages.error;
   }
   cancel(): void {
-    this.description = "Pedido já foi enviado!";
+    this.description = messages.error;
   }
   send(): void {
-    this.description = "Pedido já foi enviado!";
+    this.description = messages.error;
   }
 }

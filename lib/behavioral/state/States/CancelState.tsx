@@ -1,5 +1,8 @@
+import i18n from "../../../i18n";
 import IContext from "../Interface/IContext";
 import IState from "../Interface/IState";
+
+const messages: any = i18n.behavioral.state.cancel;
 
 export default class CancelState implements IState {
   context: IContext;
@@ -7,16 +10,16 @@ export default class CancelState implements IState {
 
   constructor(context: IContext) {
     this.context = context;
-    this.description = "Cancelado";
+    this.description = messages.init;
   }
 
   pay(): void {
-    this.description = "Pedido já foi cancelado!";
+    this.description = messages.error;
   }
   cancel(): void {
-    this.description = "Pedido já foi cancelado!";
+    this.description = messages.error;
   }
   send(): void {
-    this.description = "Pedido já foi cancelado!";
+    this.description = messages.error;
   }
 }

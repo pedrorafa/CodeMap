@@ -64,7 +64,7 @@ const ObserverPage: NextPage = () => {
           </button>
         </p>
         <p>
-          Patner: {partner.prefix} {partner.alert}
+          Patner: {partner.alert}
           <button
             className={styles.button}
             onClick={() => newsletter.subscribe(partner)}

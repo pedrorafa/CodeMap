@@ -12,11 +12,7 @@ const order = new Order(client);
 
 const checkout = new CheckOutFacade(order);
 
-order.addProduct(new Product(10, 'Pão de queijo', 'pão com queijo'))
-
-checkout.payWithCredit();
-checkout.payWithDebit();
-checkout.payWithTicket();
+order.addProduct(new Product(10, "Pão de queijo", "pão com queijo"));
 
 const FacadePage: NextPage = () => {
   useEffect(() => {}, []);
@@ -24,7 +20,32 @@ const FacadePage: NextPage = () => {
   return (
     <Layout>
       <h1 className={styles.title}>Facade Pattern</h1>
-      <div className={styles.description}>{}</div>
+      <div className={styles.description}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (checkout.payWithCredit()) alert("Pay With Credit");
+          }}
+        >
+          Pay With Credit
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (checkout.payWithDebit()) alert("Pay With Debit");
+          }}
+        >
+          Pay With Debit
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (checkout.payWithDebit()) alert("Pay With Ticket");
+          }}
+        >
+          Pay With Ticket
+        </button>
+      </div>
     </Layout>
   );
 };

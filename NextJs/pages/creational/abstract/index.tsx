@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Layout } from "../../../components/common";
 import { CityFactory } from "../../../lib/creational/abstract/Factory/CityFactory";
 import { JungleFactory } from "../../../lib/creational/abstract/Factory/JungleFactory";

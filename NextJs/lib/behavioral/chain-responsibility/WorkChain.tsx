@@ -18,7 +18,7 @@ export class WorkChain {
       this.painter.setNextWorker(this.deliverer)
   }
 
-  public checkProduct(product: Product): boolean {
-    return this.assembler.check(product);
+  public checkProduct(product: Product): Product {
+    return this.assembler.process(product);
   }
 }

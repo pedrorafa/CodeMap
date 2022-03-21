@@ -10,22 +10,25 @@ const workChain: WorkChain = new WorkChain();
 const ChainResponsibilityPage: NextPage = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     let product = new Product();
-    product.assembled = Boolean(e.currentTarget.value);
-    product.builded = Boolean(e.currentTarget.value);
-    product.painted = Boolean(e.currentTarget.value);
-    product.delivered = Boolean(e.currentTarget.value);
-
-    setRes(workChain.checkProduct(product));
+    //product.assembled = Boolean(e.currentTarget.value);
+    //product.builded = Boolean(e.currentTarget.value);
+    //product.painted = Boolean(e.currentTarget.value);
+    //product.delivered = Boolean(e.currentTarget.value);
+    workChain.checkProduct(product)
+    setRes(product);
   };
 
-  const [res, setRes] = useState<boolean>();
+  const [res, setRes] = useState<Product>();
 
   return (
     <Layout>
       <h1 className={styles.title}>Chain of Responsibility Pattern</h1>
 
       <div className={styles.description}>
-        <p>{res}</p>
+        <p>{res?.assembled}</p>
+        <p>{res?.builded}</p>
+        <p>{res?.painted}</p>
+        <p>{res?.delivered}</p>
       </div>
       <input type="check" onChange={(e) => handleChange(e)} />
     </Layout>

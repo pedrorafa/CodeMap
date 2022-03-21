@@ -5,5 +5,5 @@ export abstract class Worker {
   public setNextWorker(nextWorker: Worker): void {
     this.nextWorker = nextWorker;
   }
-  abstract check(product: Product): boolean;
+  abstract process(product: Product): Product;
 }

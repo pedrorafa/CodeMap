@@ -39,6 +39,12 @@ const Home: NextPage = () => {
             <p>Learn this Pattern</p>
           </div>
         </Link>
+        <Link href={"behavioral/chainResponsibility"}>
+          <div className={styles.card}>
+            <h2>Chain of Responsibility</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
       </div>
 
       <p className={styles.description}>

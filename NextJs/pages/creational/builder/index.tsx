@@ -6,10 +6,13 @@ import { CityBuilder } from "../../../lib/creational/builder/Builder/CityBuilder
 import { JungleBuilder } from "../../../lib/creational/builder/Builder/JungleBuilder";
 import { TerritoryBuilderDirector } from "../../../lib/creational/builder/TerritoryDirector";
 import styles from "../../../styles/Home.module.css";
+import PatternView from "../../../components/common/PatternView";
 
-const generator: TerritoryBuilderDirector = new TerritoryBuilderDirector();
 const builderCity: CityBuilder = new CityBuilder();
 const builderJungle: JungleBuilder = new JungleBuilder();
+const generator: TerritoryBuilderDirector = new TerritoryBuilderDirector(
+  builderCity
+);
 
 const BuilderPage: NextPage = () => {
   useEffect(() => {}, []);
@@ -40,7 +43,7 @@ const BuilderPage: NextPage = () => {
   };
 
   return (
-    <Layout>
+    <PatternView>
       <h1 className={styles.title}>Builder Pattern</h1>
       <div className={styles.grid}>
         {renderTerritory(
@@ -77,7 +80,7 @@ const BuilderPage: NextPage = () => {
           })()
         )}
       </div>
-    </Layout>
+    </PatternView>
   );
 };
 

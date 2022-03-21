@@ -5,6 +5,9 @@ import { ITerritory } from "./Interface/ITerritory";
 
 export class TerritoryBuilderDirector {
   protected builder: IBuilderTerritory;
+  constructor(builder: IBuilderTerritory) {
+    this.builder = builder;
+  }
 
   public setTerritory(builder: IBuilderTerritory): void {
     this.builder = builder;

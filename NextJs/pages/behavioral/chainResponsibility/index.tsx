@@ -10,10 +10,6 @@ const workChain: WorkChain = new WorkChain();
 const ChainResponsibilityPage: NextPage = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     let product = new Product();
-    //product.assembled = Boolean(e.currentTarget.value);
-    //product.builded = Boolean(e.currentTarget.value);
-    //product.painted = Boolean(e.currentTarget.value);
-    //product.delivered = Boolean(e.currentTarget.value);
     workChain.checkProduct(product)
     setRes(product);
   };

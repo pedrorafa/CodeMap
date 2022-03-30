@@ -81,6 +81,12 @@ const Home: NextPage = () => {
             <p>Learn this Pattern</p>
           </div>
         </Link>
+        <Link href={"structural/bridge"}>
+          <div className={styles.card}>
+            <h2>Bridge</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
       </div>
 
       <p className={styles.description}>

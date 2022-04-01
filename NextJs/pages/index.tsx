@@ -87,6 +87,18 @@ const Home: NextPage = () => {
             <p>Learn this Pattern</p>
           </div>
         </Link>
+        <Link href={"structural/proxy"}>
+          <div className={styles.card}>
+            <h2>Proxy</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
+        <Link href={"structural/composite"}>
+          <div className={styles.card}>
+            <h2>Composite</h2>
+            <p>Learn this Pattern</p>
+          </div>
+        </Link>
       </div>
 
       <p className={styles.description}>

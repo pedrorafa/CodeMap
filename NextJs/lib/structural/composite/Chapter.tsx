@@ -1,7 +1,7 @@
-import { Component } from "./Component";
+import { ComponentBook } from "./ComponentBook";
 
-export class Chapter extends Component {
-  private pages: Component[] = [];
+export class Chapter extends ComponentBook {
+  private pages: ComponentBook[] = [];
   private name: string;
 
   constructor(name: string) {
@@ -9,13 +9,13 @@ export class Chapter extends Component {
     this.name = name;
   }
 
-  add(component: Component): void {
+  add(component: ComponentBook): void {
     this.pages.push(component);
   }
-  remove(component: Component): void {
+  remove(component: ComponentBook): void {
     this.pages = this.pages.filter((c) => c != component);
   }
-  getLeaf(index: number): Component {
+  getLeaf(index: number): ComponentBook {
     return this.pages[index];
   }
 

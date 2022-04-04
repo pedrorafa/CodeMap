@@ -1,15 +1,15 @@
 import { UnsupportedOperationError } from "./Exceptions/UnsupportedOperationError";
 
-export abstract class Component {
+export abstract class ComponentBook {
   constructor() {}
 
-  add(component: Component): void {
+  add(component: ComponentBook): void {
     throw new UnsupportedOperationError();
   }
-  remove(component: Component): void {
+  remove(component: ComponentBook): void {
     throw new UnsupportedOperationError();
   }
-  getLeaf(index: number): Component {
+  getLeaf(index: number): ComponentBook {
     throw new UnsupportedOperationError();
   }
   show(): string {

@@ -23,7 +23,7 @@ root.add(book2);
 const CompositePage: NextPage = () => {
   return (
     <Layout>
-      <h1 className={styles.title}>Bridge Pattern</h1>
+      <h1 className={styles.title}>Composite Pattern</h1>
       <div className={styles.description}>
         <div dangerouslySetInnerHTML={{ __html: root.show() }}></div>
       </div>
